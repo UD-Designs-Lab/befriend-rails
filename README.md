@@ -157,3 +157,4 @@ You can react with a `LIKE`, `THUMBS UP` and/or `SMILE`. Below is an example of 
 2. REPOSTS
 3. Commenting and REACTing to REPOSTS
 4. FAVOURITING a post/comment/Re-post
+5. Auth (Google/Twitter)
