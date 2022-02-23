@@ -35,7 +35,7 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
 
    `GET /users/`
 
-## Blog posts
+## Posts/Stories
 
 1. Create a post
 
