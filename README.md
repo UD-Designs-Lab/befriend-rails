@@ -65,7 +65,7 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
    }
    ```
 
-3. DELETE a post
+3. DELETE a post/story
 
    `DELETE /post/${post_id}/`
 
