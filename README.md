@@ -1,6 +1,6 @@
 # BefriendRails
 
-The app is in development stage. To report an bug or suggest a feature feel free to do [create an issue(s) here](https://github.com/UD-Designs-Lab/befriend-rails/issues/new)
+The app is in development stage. To report an bug or suggest a feature please feel free to [create an issue(s)](https://github.com/UD-Designs-Lab/befriend-rails/issues/new)
 
 # Getting Started
 
