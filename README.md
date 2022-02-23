@@ -1,10 +1,10 @@
 # BefriendRails
 
-The app is in development stage.
+The app is in development stage. To report an bug or suggest a feature feel free to do [create an issue(s) here](https://github.com/UD-Designs-Lab/befriend-rails/issues/new)
 
 # Getting Started
 
-To start testing this web service, you need to have `ruby 2.6.3`, `SQLite(will switch to Postgres eventually` and `Rails 6.0` installed on your Mac or PC.
+To start testing this web service, you need to have `ruby 2.6.3`, `SQLite(will switch to Postgres/MongoDB) eventually` and `Rails 6.0` installed on your Mac or PC.
 It's also important noting that I preferred using `jbuilder` to `Active Model Serializers` for json handling.
 
 - Clone this repository
