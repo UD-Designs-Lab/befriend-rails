@@ -55,7 +55,7 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
 
 2. UPDATE a Post
 
-   `PUT /post/${post_id}/`
+   `PUT /posts/${post_id}/`
 
    ```json
    {
