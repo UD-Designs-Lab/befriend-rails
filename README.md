@@ -65,9 +65,9 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
    }
    ```
 
-3. DELETE a post/story
+3. DELETE a post/
 
-   `DELETE /post/${post_id}/`
+   `DELETE /posts/${post_id}/`
 
 4. SHOW a post by an individual user (including all reactions and comments on the post).
 
