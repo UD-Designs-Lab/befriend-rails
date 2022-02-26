@@ -81,7 +81,7 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
 
 1. Create a repost of a story
 
-   `POST /reposts/${repost_id}/reposts`
+   `POST /posts/${post_id}/reposts`
 
    ```json
    {
@@ -92,6 +92,7 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
    ```
 
 2. Create a repost on a repost
+
    `POST /reposts/${repost_id}/reposts`
 
    ```json
@@ -104,7 +105,7 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
 
 3. Get all reposts
 
-   `GET reposts/`
+   `GET /reposts/`
 
 4. Delete a repost
 
@@ -215,6 +216,8 @@ You can react with a `LIKE`, `THUMBS UP` and/or `SMILE`. Below is an example of 
      "id": "Enter id"
    }
    ```
+
+   posts/1/favourites
 
 2. Unfollow user
 
