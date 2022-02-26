@@ -80,6 +80,7 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
 ## Reposts
 
 1. Create a repost of a story
+
    `POST /reposts/${repost_id}/reposts`
 
    ```json
@@ -102,9 +103,11 @@ It's also important noting that I preferred using `jbuilder` to `Active Model Se
    ```
 
 3. Get all reposts
+
    `GET reposts/`
 
 4. Delete a repost
+
    `DELETE /reposts/${id}/`
 
 ## Comments
@@ -182,23 +185,29 @@ You can react with a `LIKE`, `THUMBS UP` and/or `SMILE`. Below is an example of 
 ## Favourites
 
 1. Favourite a post/story
+
    `POST /posts/${post_id}/favourites`
 
 2. Favourite a comment on a post/story
+
    `POST comments/${comment_id}/favourites`
 
 3. Favourite a re-post
+
    `POST /reposts/${repost_id}/favourites`
 
 4. Get all your favourited posts/stories
+
    `GET /users/${user_id}/favourites`
 
 5. Delete a favourited post
+
    `DELETE /favourites/${favourite_id}`
 
 ## Follow & Unfollow
 
 1. Follow a user
+
    `POST /relationships/`
 
    ```json
@@ -208,7 +217,9 @@ You can react with a `LIKE`, `THUMBS UP` and/or `SMILE`. Below is an example of 
    ```
 
 2. Unfollow user
+
 `DELETE /relationships/id/`
+
 <!--
 3. Get all followers for a given user
    `GET /users/${user_id}/following/`
