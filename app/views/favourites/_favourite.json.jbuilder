@@ -9,6 +9,7 @@ if favourite.favouriteable_type == 'post'
   end
 elsif favourite.favouriteable_type == 'Comment'
   json.partial! 'comments/comment', comment: favourite.favouriteable
+
   # favourites should not have nested comments and should only display if favourited explicitly
   json.has_nested_comment false
   json.comments []

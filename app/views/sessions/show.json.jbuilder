@@ -1,5 +1,3 @@
-json.user do
-  json.partial! 'users/user', user: @current_user
-end
+json.user { json.partial! 'users/user', user: @current_user }
 
 json.token @token

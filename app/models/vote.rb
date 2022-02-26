@@ -14,13 +14,12 @@ class Vote
     end
   end
 
-
   def toggle_thumbs_up
-    votes 
+    votes
   end
 
   def toggle_smile
-    votes 
+    votes
   end
 
   def toggle_like

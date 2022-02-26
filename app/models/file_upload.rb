@@ -17,12 +17,9 @@ class FileUpload
   end
 
   private
+
   def upload_new_image
-    if uploadable?
-      Cloudinary::Uploader.upload(file)
-    else
-      Hash['url': nil]
-    end
+    uploadable? ? Cloudinary::Uploader.upload(file) : Hash['url': nil]
   end
 
   def delete_prev_image

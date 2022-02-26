@@ -61,13 +61,11 @@ class UsersController < ApplicationController
     render :index_user_smiled_on_posts
   end
 
-
   def thumbed_up_posts
     user = User.find(params[:id])
     @posts = user.get_voted(Post)
     render :index_user_thumbed_up_posts
   end
-
 
   def commented_posts
     user = User.find(params[:id])
@@ -76,26 +74,25 @@ class UsersController < ApplicationController
   end
 
   private
+
   def create_user_params
-    params.require(:user).permit(
-      :email,
-      :username,
-      :password
-    )
+    params.require(:user).permit(:email, :username, :password)
   end
 
   def user_updated?(user)
-    avatar = FileUpload.new(
-      file: params[:avatar],
-      file_location: user.avatar,
-      action: params[:action]
-    ).upload_image!
+    avatar =
+      FileUpload.new(
+        file: params[:avatar],
+        file_location: user.avatar,
+        action: params[:action],
+      ).upload_image!
 
-    banner = FileUpload.new(
-      file: params[:banner],
-      file_location: user.banner,
-      action: params[:action]
-    ).upload_image!
+    banner =
+      FileUpload.new(
+        file: params[:banner],
+        file_location: user.banner,
+        action: params[:action],
+      ).upload_image!
 
     user.update(
       name: params[:name],
@@ -103,7 +100,7 @@ class UsersController < ApplicationController
       location: params[:location],
       website: params[:website],
       avatar: avatar['url'] || params[:avatar],
-      banner: banner['url'] || params[:banner]
+      banner: banner['url'] || params[:banner],
     )
   end
 end

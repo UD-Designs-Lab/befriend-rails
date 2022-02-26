@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_post_to_vote_on, only: %i(vote_like vote_smile vote_thumbs_up) 
+  before_action :set_post_to_vote_on,
+                only: %i[vote_like vote_smile vote_thumbs_up]
   def create
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
@@ -7,19 +8,21 @@ class CommentsController < ApplicationController
     if @comment.save
       render :new, status: :created
     else
-      render json: { message: @comment.errors.full_messages }, status: :bad_request
+      render json: {
+               message: @comment.errors.full_messages,
+             },
+             status: :bad_request
     end
-  end 
+  end
 
-  def update 
+  def update
     # return error('bad_request') unless current_user?(@comment.user)
     @comment = Comment.find(params[:id]).update(comment_params)
     if @comment
-      render json: { message: "Comment updated", status: :ok }
+      render json: { message: 'Comment updated', status: :ok }
     else
       render json: { message: @post.errors.full_messages }, status: :bad_request
     end
-
   end
 
   def destroy
@@ -33,7 +36,6 @@ class CommentsController < ApplicationController
     Vote.new(voter: current_user, object: @post).toggle_like
   end
 
-
   def vote_smile
     Vote.new(voter: current_user, object: @post).toggle_like
   end
@@ -43,6 +45,7 @@ class CommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:comment).permit(:content)
   end
@@ -51,8 +54,7 @@ class CommentsController < ApplicationController
     current_user?(comment.user) || current_user?(comment.commentable.user)
   end
 
-  def set_post_to_vote_on 
+  def set_post_to_vote_on
     @post = Comment.find(params[:id])
   end
-
 end

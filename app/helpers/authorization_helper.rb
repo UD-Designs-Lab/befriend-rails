@@ -1,7 +1,7 @@
 module AuthorizationHelper
   MESSAGE = {
     bad_request: 'Sorry, we cannot process your request!',
-    unauthorized: 'Please signup or login to continue!'
+    unauthorized: 'Please signup or login to continue!',
   }
 
   def error(type)

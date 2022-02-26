@@ -1,3 +1,1 @@
-json.repost do
-  json.id @repost.id
-end
+json.repost { json.id @repost.id }

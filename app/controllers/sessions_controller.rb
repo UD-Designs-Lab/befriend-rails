@@ -18,11 +18,12 @@ class SessionsController < ApplicationController
   end
 
   private
-    def email
-      params.dig(:user, :email)
-    end
 
-    def password
-      params.dig(:user, :password)
-    end
+  def email
+    params.dig(:user, :email)
+  end
+
+  def password
+    params.dig(:user, :password)
+  end
 end

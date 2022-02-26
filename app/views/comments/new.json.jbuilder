@@ -1,3 +1,1 @@
-json.comment do
-  json.id @comment.id
-end
+json.comment { json.id @comment.id }

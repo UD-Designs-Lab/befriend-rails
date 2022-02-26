@@ -3,9 +3,7 @@ json.body comment.content
 json.created_at comment.created_at
 json.has_nested_comment !comment.comments.length.zero?
 
-json.commenter do
-  json.partial! 'users/user', user: comment.user
-end
+json.commenter { json.partial! 'users/user', user: comment.user }
 
 json.meta do
   json.is_favourited current_user.favourited?(comment)
@@ -15,7 +13,7 @@ json.meta do
     json.is_liked current_user.voted_up_on?(comment)
   end
 
-  json.thumbs_up do 
+  json.thumbs_up do
     json.total_thumbs_up comment.votes_for.size
     json.is_thumbed_up current_user.voted_up_on?(comment)
   end
@@ -25,9 +23,7 @@ json.meta do
     json.is_smiled current_user.voted_up_on?(comment)
   end
 
-  json.comments do
-    json.total_comments comment.comments.size
-  end
+  json.comments { json.total_comments comment.comments.size }
 end
 
 json.comments comment.comments do |comment|

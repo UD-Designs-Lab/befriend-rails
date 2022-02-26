@@ -13,7 +13,7 @@ json.meta do
     json.is_liked current_user.voted_up_on?(post)
   end
 
-  json.thumbs_up do 
+  json.thumbs_up do
     json.total_thumbs_up post.votes_for.size
     json.is_thumbed_up current_user.voted_up_on?(post)
   end
@@ -23,9 +23,7 @@ json.meta do
     json.is_smiled current_user.voted_up_on?(post)
   end
 
-  json.comments do
-    json.total_comments post.comments.size
-  end
+  json.comments { json.total_comments post.comments.size }
 
   json.reposts do
     json.total_reposts post.reposts.count

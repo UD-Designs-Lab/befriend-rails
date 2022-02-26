@@ -12,31 +12,31 @@
 
 ActiveRecord::Schema.define(version: 2022_02_50_101618) do
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
     t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "commentable_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "favourites", force: :cascade do |t|
+  create_table "favourites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "favouriteable_type", null: false
-    t.integer "favouriteable_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "favouriteable_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["favouriteable_type", "favouriteable_id"], name: "index_favourites_on_favouriteable_type_and_favouriteable_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "body", null: false
     t.string "image"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "reply_status", default: "everyone", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.index ["uuid"], name: "index_posts_on_uuid"
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
@@ -56,12 +56,12 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "reposts", force: :cascade do |t|
+  create_table "reposts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "body"
     t.string "uuid"
     t.string "repostable_type", null: false
-    t.integer "repostable_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "repostable_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["repostable_type", "repostable_id"], name: "index_reposts_on_repostable_type_and_repostable_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.index ["uuid"], name: "index_reposts_on_uuid"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "username", null: false
     t.string "name"
@@ -84,11 +84,11 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.index ["email", "username"], name: "index_users_on_email_and_username"
   end
 
-  create_table "votes", force: :cascade do |t|
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "votable_type"
-    t.integer "votable_id"
+    t.bigint "votable_id"
     t.string "voter_type"
-    t.integer "voter_id"
+    t.bigint "voter_id"
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
