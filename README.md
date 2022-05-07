@@ -4,7 +4,7 @@ The app is in development stage. To report a bug or suggest a feature please fee
 
 # Getting Started
 
-To start testing this web service, you need to have `ruby 2.6.3`, `MySQL` and `Rails 6.0` installed on your Mac or PC.
+To start testing this web service, you need to have `ruby 2.6.3`, `Potgrs` and `Rails 6.0` installed on your Mac or PC.
 It's also important noting that I preferred using `jbuilder` to `Active Model Serializers` for json handling.
 
 - Clone this repository
@@ -216,8 +216,6 @@ You can react with a `LIKE`, `THUMBS UP` and/or `SMILE`. Below is an example of 
      "id": "Enter id"
    }
    ```
-
-   posts/1/favourites
 
 2. Unfollow user
 

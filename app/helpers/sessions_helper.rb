@@ -1,9 +1,9 @@
 module SessionsHelper
   def current_user
-    header = request.headers['Authorization']
+    header = request.headers["Authorization"]
     unless header.blank?
-      @token = header.sub('Bearer ', '')
-      id = Token.new(token: @token).decode.first['user_id']
+      @token = header.sub("Bearer ", "")
+      id = Token.new(token: @token).decode.first["user_id"]
       @current_user ||= User.find(id)
     end
   end
@@ -17,6 +17,6 @@ module SessionsHelper
   end
 
   def authenticate_user!
-    return error('unauthorized') unless user_signed_in?
+    return error("unauthorized") unless user_signed_in?
   end
 end

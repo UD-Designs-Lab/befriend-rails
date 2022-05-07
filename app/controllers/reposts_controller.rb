@@ -9,16 +9,16 @@ class RepostsController < ApplicationController
     @repost = @repostable.reposts.build(repost_params)
     @repost.user_id = current_user.id
     if current_user.already_reposted?(@repost.repostable)
-      return error('bad_request')
+      return error("bad_request")
     end
 
     if @repost.save
       render :new, status: :created
     else
       render json: {
-               message: @repost.errors.full_messages,
-             },
-             status: :bad_request
+        message: @repost.errors.full_messages
+      },
+        status: :bad_request
     end
   end
 

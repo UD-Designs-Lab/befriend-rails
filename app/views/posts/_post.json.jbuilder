@@ -1,7 +1,7 @@
 json.id post.id
 json.uuid post.uuid
 json.body post.body
-json.image get_file_url(post.image, height: 300, crop: 'fill')
+json.image get_file_url(post.image, height: 300, crop: "fill")
 json.reply_status post.reply_status
 json.created_at post.created_at
 

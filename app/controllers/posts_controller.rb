@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_image, only: %i[update]
   before_action :set_filtered_post,
-                only: %i[vote_like vote_smile vote_thumbs_up]
+    only: %i[vote_like vote_smile vote_thumbs_up]
   before_action :set_post, only: %i[update]
   def index
     @posts = Post.from_people_you_know(current_user).includes(:user)
@@ -16,48 +16,48 @@ class PostsController < ApplicationController
       FileUpload.new(
         file: params[:image],
         file_location: nil,
-        action: params[:action],
+        action: params[:action]
       ).upload_image!
 
     @post =
       current_user.posts.create!(
         body: params[:body],
-        image: @image['url'],
-        reply_status: params[:reply_status],
+        image: @image["url"],
+        reply_status: params[:reply_status]
       )
 
     if @post
       render :new, status: :created
     else
-      render json: { message: @post.errors.full_messages }, status: :bad_request
+      render json: {message: @post.errors.full_messages}, status: :bad_request
     end
   end
 
   def update
-    return error('bad_request') unless current_user?(@post.user)
+    return error("bad_request") unless current_user?(@post.user)
     if @post.update(
-         body: params[:body],
-         image: @image['url'],
-         reply_status: params[:reply_status],
-       )
-      render json: { message: 'Post updated', status: :ok }
+      body: params[:body],
+      image: @image["url"],
+      reply_status: params[:reply_status]
+    )
+      render json: {message: "Post updated", status: :ok}
     else
-      render json: { message: @post.errors.full_messages }, status: :bad_request
+      render json: {message: @post.errors.full_messages}, status: :bad_request
     end
   end
 
   def destroy
     post = Post.find(params[:id])
-    return error('bad_request') unless current_user?(post.user)
+    return error("bad_request") unless current_user?(post.user)
 
     FileUpload.new(
       file: nil,
       file_location: post.image,
-      action: params[:action],
+      action: params[:action]
     ).delete_image!
 
     post.destroy
-    render json: { message: 'Deleted post!' }
+    render json: {message: "Deleted post!"}
   end
 
   # LIKE, SMILE, THUMBS UP SECTION
@@ -100,7 +100,7 @@ class PostsController < ApplicationController
       FileUpload.new(
         file: params[:image],
         file_location: nil,
-        action: params[:action],
+        action: params[:action]
       ).upload_image!
   end
 

@@ -3,7 +3,7 @@ json.body comment.content
 json.created_at comment.created_at
 json.has_nested_comment !comment.comments.length.zero?
 
-json.commenter { json.partial! 'users/user', user: comment.user }
+json.commenter { json.partial! "users/user", user: comment.user }
 
 json.meta do
   json.is_favourited current_user.favourited?(comment)
@@ -27,5 +27,5 @@ json.meta do
 end
 
 json.comments comment.comments do |comment|
-  json.partial! 'comments/comment', comment: comment
+  json.partial! "comments/comment", comment: comment
 end

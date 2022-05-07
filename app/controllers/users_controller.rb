@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       @token = Token.new(user_id: @user.id).encode
       render :new, status: :created
     else
-      render json: { message: @user.errors.full_messages }, status: :bad_request
+      render json: {message: @user.errors.full_messages}, status: :bad_request
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       @token = Token.new(user_id: @user.id).encode
       render :edit
     else
-      render json: { message: @user.errors.full_messages }, status: :bad_request
+      render json: {message: @user.errors.full_messages}, status: :bad_request
     end
   end
 
@@ -84,14 +84,14 @@ class UsersController < ApplicationController
       FileUpload.new(
         file: params[:avatar],
         file_location: user.avatar,
-        action: params[:action],
+        action: params[:action]
       ).upload_image!
 
     banner =
       FileUpload.new(
         file: params[:banner],
         file_location: user.banner,
-        action: params[:action],
+        action: params[:action]
       ).upload_image!
 
     user.update(
@@ -99,8 +99,8 @@ class UsersController < ApplicationController
       bio: params[:bio],
       location: params[:location],
       website: params[:website],
-      avatar: avatar['url'] || params[:avatar],
-      banner: banner['url'] || params[:banner],
+      avatar: avatar["url"] || params[:avatar],
+      banner: banner["url"] || params[:banner]
     )
   end
 end

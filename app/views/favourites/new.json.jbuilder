@@ -1,1 +1,1 @@
-json.favourite { json.partial! 'favourite', favourite: @favourite }
+json.favourite { json.partial! "favourite", favourite: @favourite }

@@ -6,11 +6,11 @@ class User
       def search(keyword)
         if keyword.present?
           where(
-            'name iLIKE :keyword OR email iLIKE :keyword OR username iLIKE :keyword',
+            "name iLIKE :keyword OR email iLIKE :keyword OR username iLIKE :keyword",
             keyword: "%#{keyword}%"
           )
         else
-          self.all
+          all
         end
       end
     end

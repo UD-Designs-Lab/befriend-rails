@@ -17,9 +17,9 @@ class Repost < ApplicationRecord
 
   scope :own_reposts, ->(user) { where(user_id: user.id) }
   scope :from_people_you_follow,
-        ->(user) { where(user_id: user.following.pluck(:id)) }
+    ->(user) { where(user_id: user.following.pluck(:id)) }
   scope :from_people_you_know,
-        ->(user) { from_people_you_follow(user).or(own_reposts(user)) }
+    ->(user) { from_people_you_follow(user).or(own_reposts(user)) }
   scope :reposts_count, -> { where(body: nil).count }
   scope :quote_posts_count, -> { where.not(body: nil).count }
 end

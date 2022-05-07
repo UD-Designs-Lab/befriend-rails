@@ -11,7 +11,7 @@ module FilesHelper
       width: width,
       height: height,
       crop: crop,
-      gravity: gravity,
+      gravity: gravity
     )
   end
 end

@@ -5,7 +5,7 @@ class FavouritesController < ApplicationController
   end
 
   def create
-    return error('bad_request') if current_user.favourited?(@favouriteable)
+    return error("bad_request") if current_user.favourited?(@favouriteable)
     @favourite = @favouriteable.favourites.build
     @favourite.user_id = current_user.id
     render :new, status: :created if @favourite.save

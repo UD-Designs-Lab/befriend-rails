@@ -36,10 +36,10 @@ class User < ApplicationRecord
   include Friendship
 
   def favourited?(object)
-    self.favourites.map(&:favouriteable).include?(object)
+    favourites.map(&:favouriteable).include?(object)
   end
 
   def already_reposted?(object)
-    self.reposts.map(&:repostable).include?(object)
+    reposts.map(&:repostable).include?(object)
   end
 end

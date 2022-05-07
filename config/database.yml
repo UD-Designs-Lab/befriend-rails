@@ -16,26 +16,49 @@
 #   <<: *default
 #   database: db/production.sqlite3
 
-# MYQL SETTINGS
-
+# POSTGRES SETTINGS 
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: avosa
-  password: rets
-  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: befriend_dev
+  database: befriend_rails_development
 
 test:
   <<: *default
-  database: befriend_test
+  database: befriend_rails_test
 
 production:
   <<: *default
-  database: befriend_prod
-  username: befriend
-  password: <%= ENV["befriend_DATABASE_PASSWORD"] %>
+  database: befriend_rails_production
+  username: befriend_rails
+  password: <%= ENV['BEFRIEND_RAILS_DATABASE_PASSWORD'] %>
+
+
+# MYQL SETTINGS
+
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8mb4
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: avosa
+#   password: rets
+#   socket: /var/run/mysqld/mysqld.sock
+
+# development:
+#   <<: *default
+#   database: befriend_dev
+
+# test:
+#   <<: *default
+#   database: befriend_test
+
+# production:
+#   <<: *default
+#   database: befriend_prod
+#   username: befriend
+#   password: <%= ENV["befriend_DATABASE_PASSWORD"] %>
