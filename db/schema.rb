@@ -2,8 +2,8 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.string "commentable_type", null: false
-    t.bigint "commentable_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "commentable_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
 
   create_table "favourites", force: :cascade do |t|
     t.string "favouriteable_type", null: false
-    t.bigint "favouriteable_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "favouriteable_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["favouriteable_type", "favouriteable_id"], name: "index_favourites_on_favouriteable_type_and_favouriteable_id"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
   create_table "posts", force: :cascade do |t|
     t.text "body", null: false
     t.string "image"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "reply_status", default: "everyone", null: false
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.text "body"
     t.string "uuid"
     t.string "repostable_type", null: false
-    t.bigint "repostable_id", null: false
-    t.bigint "user_id", null: false
+    t.integer "repostable_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["repostable_type", "repostable_id"], name: "index_reposts_on_repostable_type_and_repostable_id"
@@ -89,9 +89,9 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
 
   create_table "votes", force: :cascade do |t|
     t.string "votable_type"
-    t.bigint "votable_id"
+    t.integer "votable_id"
     t.string "voter_type"
-    t.bigint "voter_id"
+    t.integer "voter_id"
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"

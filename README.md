@@ -1,17 +1,20 @@
-# BefriendRails
+# Befriend Rails
 
 The app is in development stage. To report a bug or suggest a feature please feel free to [create an issue(s)](https://github.com/UD-Designs-Lab/befriend-rails/issues/new)
 
 # Getting Started
 
-To start testing this web service, you need to have `ruby 2.6.3`, `Potgrs` and `Rails 6.1.5` installed on your Mac or PC.
-It's also important noting that I preferred using `jbuilder` to `Active Model Serializers` for json handling.
+To start testing this web service, you need to have `ruby 2.6.3`, `PostgresQL 10+`,`Rails 6.1.5` and `Postman` or similar software installed on your Mac/PC.
 
-- Clone this repository
-- `cd` into the folder
-- Run `bundle install`
-- Run `rails db:create && rails db:migrate`
-- Run `rails server`
+# Steps
+
+```sh
+git clone https://github.com/UD-Designs-Lab/befriend-rails.git
+cd ~/befriend-rails
+bundle install
+rails db:create db:migrate
+rails server
+```
 
 ## Register/Login
 
