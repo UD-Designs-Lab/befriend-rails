@@ -8,7 +8,7 @@ gem "pg", ">= 0.18", "< 2.0"
 # gem 'sqlite3'
 # gem "mysql2", "~> 0.5"
 
-gem "puma", "~> 5.6"
+gem "puma", ">= 5.6.4"
 gem "jbuilder", "~> 2.7"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.4.2", require: false
