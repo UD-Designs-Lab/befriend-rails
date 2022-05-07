@@ -4,6 +4,6 @@ class Posts::FavouritesController < FavouritesController
   private
 
   def set_favouriteable
-    @Favouriteable = Post.find(params[:post_id])
+    @favouriteable = Post.find(params[:post_id])
   end
 end

@@ -46,6 +46,6 @@ class RepostsController < ApplicationController
   end
 
   def set_repost
-    repost_to_vote_on = Repost.find(params[:id])
+    Repost.find(params[:id])
   end
 end
