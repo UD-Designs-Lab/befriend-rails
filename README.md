@@ -4,7 +4,7 @@ The app is in development stage. To report a bug or suggest a feature please fee
 
 # Getting Started
 
-To start testing this web service, you need to have `ruby 2.6.3`, `PostgresQL 10+`,`Rails 6.1.5` and `Postman` or similar software installed on your Mac/PC.
+To start testing this web service, you need to have `ruby 3.0.0`, `PostgresQL 10+`,`Rails 6.1.5` and `Postman` or similar software installed on your Mac/PC.
 
 # Steps
 
