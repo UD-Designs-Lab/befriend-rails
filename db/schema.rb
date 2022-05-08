@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_50_101618) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_02_50_101618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,8 +19,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.string "commentable_type", null: false
     t.bigint "commentable_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -30,8 +29,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.string "favouriteable_type", null: false
     t.bigint "favouriteable_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["favouriteable_type", "favouriteable_id"], name: "index_favourites_on_favouriteable"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
@@ -40,8 +39,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.text "body", null: false
     t.string "image"
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "reply_status", default: "everyone", null: false
     t.string "uuid"
     t.index ["reply_status"], name: "index_posts_on_reply_status"
@@ -52,8 +51,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
@@ -65,8 +64,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.string "repostable_type", null: false
     t.bigint "repostable_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["repostable_type", "repostable_id"], name: "index_reposts_on_repostable"
     t.index ["user_id"], name: "index_reposts_on_user_id"
     t.index ["uuid"], name: "index_reposts_on_uuid"
@@ -82,8 +81,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.string "password_digest"
     t.string "avatar"
     t.string "banner"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email", "username"], name: "index_users_on_email_and_username"
   end
 
@@ -95,8 +94,8 @@ ActiveRecord::Schema.define(version: 2022_02_50_101618) do
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
     t.index ["votable_type", "votable_id"], name: "index_votes_on_votable"
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"

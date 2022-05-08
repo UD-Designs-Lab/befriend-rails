@@ -1,4 +1,4 @@
-class CreateFavourites < ActiveRecord::Migration[6.1]
+class CreateFavourites < ActiveRecord::Migration[7.0]
   def change
     create_table :favourites do |t|
       t.references :favouriteable, polymorphic: true, null: false

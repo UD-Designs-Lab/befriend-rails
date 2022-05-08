@@ -1,4 +1,4 @@
-class AddUuidToPost < ActiveRecord::Migration[6.1]
+class AddUuidToPost < ActiveRecord::Migration[7.0]
   def change
     add_column :posts, :uuid, :string
     add_index :posts, :uuid
