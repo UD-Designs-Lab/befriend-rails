@@ -233,5 +233,5 @@ You can react with a `LIKE`, `THUMBS UP` and/or `SMILE`. Below is an example of 
 
 ## To do
 
-1. Auth (Google/Twitter)
-2. Following - Get followers and following
+1. Auth (Google/Twitter) [ ]
+2. Following - Get followers and following [ ]
