@@ -1,4 +1,5 @@
 # frozen_string_literal: true 
+# rubocop:disable Layout/EmptyLines, Lint/RedundantCopDisableDirective 
 
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
