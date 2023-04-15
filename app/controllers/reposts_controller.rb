@@ -16,9 +16,9 @@ class RepostsController < ApplicationController
       render :new, status: :created
     else
       render json: {
-        message: @repost.errors.full_messages
-      },
-        status: :bad_request
+               message: @repost.errors.full_messages
+             },
+             status: :bad_request
     end
   end
 

@@ -35,6 +35,15 @@ class User < ApplicationRecord
   include Filterable
   include Friendship
 
+  # Method to create or find a user based on the information provided by Google.
+  def self.from_omniauth(auth)
+    where(email: auth.info.email).first_or_initialize do |user|
+      user.name = auth.info.name
+      user.email = auth.info.email
+      user.password = SecureRandom.hex(16)
+    end
+  end
+
   def favourited?(object)
     favourites.map(&:favouriteable).include?(object)
   end

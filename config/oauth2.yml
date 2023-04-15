@@ -1,0 +1,14 @@
+development:
+  client_id: your_client_id
+  client_secret: your_client_secret
+  redirect_uri: http://localhost:3000/auth/google_oauth2/callback
+
+test:
+  client_id: your_test_client_id
+  client_secret: your_test_client_secret
+  redirect_uri: http://localhost:3000/auth/google_oauth2/callback
+
+production:
+  client_id: your_production_client_id
+  client_secret: your_production_client_secret
+  redirect_uri: https://your_app_name.herokuapp.com/auth/google_oauth2/callback

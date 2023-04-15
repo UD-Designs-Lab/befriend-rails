@@ -11,6 +11,6 @@ class Token
   end
 
   def decode
-    JWT.decode @token, SECRET_KEY, true, {algorithm: "HS256"}
+    JWT.decode @token, SECRET_KEY, true, { algorithm: "HS256" }
   end
 end

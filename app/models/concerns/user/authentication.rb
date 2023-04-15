@@ -10,6 +10,7 @@ class User
       def find_by_credentials(email, password)
         user = find_by(email: email.downcase)
         return nil unless user
+
         user.authenticate(password) ? user : nil
       end
     end

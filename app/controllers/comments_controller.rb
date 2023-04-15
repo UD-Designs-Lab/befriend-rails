@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post_to_vote_on,
-    only: %i[vote_like vote_smile vote_thumbs_up]
+                only: %i[vote_like vote_smile vote_thumbs_up]
   def create
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
@@ -9,9 +9,9 @@ class CommentsController < ApplicationController
       render :new, status: :created
     else
       render json: {
-        message: @comment.errors.full_messages
-      },
-        status: :bad_request
+               message: @comment.errors.full_messages
+             },
+             status: :bad_request
     end
   end
 
@@ -19,15 +19,16 @@ class CommentsController < ApplicationController
     # return error('bad_request') unless current_user?(@comment.user)
     @comment = Comment.find(params[:id]).update(comment_params)
     if @comment
-      render json: {message: "Comment updated", status: :ok}
+      render json: { message: "Comment updated", status: :ok }
     else
-      render json: {message: @post.errors.full_messages}, status: :bad_request
+      render json: { message: @post.errors.full_messages }, status: :bad_request
     end
   end
 
   def destroy
     comment = Comment.find(params[:id])
     return error("unauthorized") unless deletable?(comment)
+
     comment.destroy
   end
 

@@ -19,11 +19,12 @@ class FileUpload
   private
 
   def upload_new_image
-    uploadable? ? Cloudinary::Uploader.upload(file) : {url: nil}
+    uploadable? ? Cloudinary::Uploader.upload(file) : { url: nil }
   end
 
   def delete_prev_image
     return if file_location.nil?
+
     file_id = File.basename(file_location, ".*")
     Cloudinary::Uploader.destroy(file_id)
   end

@@ -6,6 +6,6 @@ module AuthorizationHelper
 
   def error(type)
     error_message = MESSAGE[type.to_sym]
-    render json: {message: error_message}, status: MESSAGE.key(error_message)
+    render json: { message: error_message }, status: MESSAGE.key(error_message)
   end
 end
